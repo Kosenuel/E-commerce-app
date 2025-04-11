@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Kosenuel Electronics</title>
+    <meta name="description" content="Detailed information about our premium electronic products at Kosenuel.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../images/kosenuel_icon.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/kosenuel_logo.png" alt="Kosenuel Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html" class="active">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="search-toggle" aria-label="Search"><i class="fas fa-search"></i></a>
+                    <a href="checkout.html" class="cart-icon" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="search-container">
+                <form action="#" class="search-form">
+                    <input type="text" placeholder="Search for products..." class="search-input">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li id="product-category"><a href="#"></a></li>
+                    <li id="product-name" class="current"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Product Detail Section -->
+        <section class="product-detail">
+            <div class="container">
+                <div class="product-detail-wrapper" id="product-detail-container">
+                    <!-- Product details will be loaded dynamically via JavaScript -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading product details...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Description Tabs -->
+        <section class="product-tabs">
+            <div class="container">
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="description">Description</button>
+                        <button class="tab-btn" data-tab="specifications">Specifications</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="description">
+                            <!-- Description content will be loaded dynamically -->
+                            <p class="placeholder-text">Loading product description...</p>
+                        </div>
+                        <div class="tab-panel" id="specifications">
+                            <!-- Specifications content will be loaded dynamically -->
+                            <p class="placeholder-text">Loading product specifications...</p>
+                        </div>
+                        <div class="tab-panel" id="reviews">
+                            <div class="reviews-summary">
+                                <div class="rating-summary">
+                                    <div class="average-rating">
+                                        <span class="rating-number">4.5</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="rating-count">Based on 24 reviews</span>
+                                    </div>
+                                    <div class="rating-bars">
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">5 Stars</span>
+                                            <div class="rating-bar">
+                                                <div class="rating-fill" style="width: 70%"></div>
+                                            </div>
+                                            <span class="rating-percent">70%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">4 Stars</span>
+                                            <div class="rating-bar">
+                                                <div class="rating-fill" style="width: 20%"></div>
+                                            </div>
+                                            <span class="rating-percent">20%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">3 Stars</span>
+                                            <div class="rating-bar">
+                                                <div class="rating-fill" style="width: 5%"></div>
+                                            </div>
+                                            <span class="rating-percent">5%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">2 Stars</span>
+                                            <div class="rating-bar">
+                                                <div class="rating-fill" style="width: 3%"></div>
+                                            </div>
+                                            <span class="rating-percent">3%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">1 Star</span>
+                                            <div class="rating-bar">
+                                                <div class="rating-fill" style="width: 2%"></div>
+                                            </div>
+                                            <span class="rating-percent">2%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reviews-list">
+                                <!-- Sample reviews - will be replaced with dynamic content in production -->
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <h4>John D.</h4>
+                                            <div class="review-date">March 15, 2025</div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>Excellent product! The quality exceeded my expectations. Fast delivery and great customer service.</p>
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <h4>Sarah M.</h4>
+                                            <div class="review-date">February 28, 2025</div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>Very good product overall. The battery life is impressive, but I wish it came with more accessories.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="write-review">
+                                <h3>Write a Review</h3>
+                                <form class="review-form">
+                                    <div class="form-group">
+                                        <label for="review-rating">Your Rating</label>
+                                        <div class="rating-select">
+                                            <i class="far fa-star" data-rating="1"></i>
+                                            <i class="far fa-star" data-rating="2"></i>
+                                            <i class="far fa-star" data-rating="3"></i>
+                                            <i class="far fa-star" data-rating="4"></i>
+                                            <i class="far fa-star" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-title">Review Title</label>
+                                        <input type="text" id="review-title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-content">Your Review</label>
+                                        <textarea id="review-content" rows="5" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+        <section class="related-products">
+            <div class="container">
+                <h2 class="section-title">You May Also Like</h2>
+                <div class="product-grid" id="related-products-grid">
+                    <!-- Related products will be loaded dynamically via JavaScript -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading related products...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recently Viewed Section -->
+        <section class="recently-viewed">
+            <div class="container">
+                <h2 class="section-title">Recently Viewed</h2>
+                <div class="product-grid" id="recently-viewed-grid">
+                    <!-- Recently viewed products will be loaded dynamically via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/kosenuel_logo.png" alt="Kosenuel Logo">
+                    <p>Specializing in high-quality electronics that enhance your lifestyle.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li><a href="products.html?category=smartphones">Smartphones</a></li>
+                            <li><a href="products.html?category=laptops">Laptops</a></li>
+                            <li><a href="products.html?category=audio">Audio</a></li>
+                            <li><a href="products.html?category=wearables">Wearables</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Warranty</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kosenuel. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/product-detail.js"></script>
+</body>
+</html>

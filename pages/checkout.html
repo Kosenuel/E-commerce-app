@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kosenuel Electronics</title>
+    <meta name="description" content="Complete your purchase of premium electronic products from Kosenuel.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../images/kosenuel_icon.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/kosenuel_logo.png" alt="Kosenuel Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="search-toggle" aria-label="Search"><i class="fas fa-search"></i></a>
+                    <a href="checkout.html" class="cart-icon active" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="search-container">
+                <form action="#" class="search-form">
+                    <input type="text" placeholder="Search for products..." class="search-input">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Checkout Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Checkout</h1>
+                <p>Complete your purchase securely</p>
+            </div>
+        </section>
+
+        <!-- Checkout Process Section -->
+        <section class="checkout-section">
+            <div class="container">
+                <div class="checkout-progress">
+                    <div class="progress-step active" data-step="cart">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Shopping Cart</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="shipping">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Shipping</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="payment">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Payment</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="confirmation">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+
+                <div class="checkout-container">
+                    <!-- Step 1: Shopping Cart -->
+                    <div class="checkout-step active" id="cart-step">
+                        <div class="checkout-grid">
+                            <div class="cart-items">
+                                <h2>Your Cart</h2>
+                                <div class="cart-list" id="cart-items-list">
+                                    <!-- Cart items will be loaded dynamically via JavaScript -->
+                                    <div class="empty-cart-message" id="empty-cart-message">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <p>Your cart is empty</p>
+                                        <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                                    </div>
+                                </div>
+                                <div class="cart-actions">
+                                    <a href="products.html" class="btn btn-secondary">Continue Shopping</a>
+                                    <button class="btn btn-primary next-step" data-next="shipping" id="to-shipping-btn" disabled>Proceed to Shipping</button>
+                                </div>
+                            </div>
+                            <div class="order-summary">
+                                <h2>Order Summary</h2>
+                                <div class="summary-item">
+                                    <span>Subtotal</span>
+                                    <span id="cart-subtotal">₦0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Shipping</span>
+                                    <span id="cart-shipping">₦0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Tax</span>
+                                    <span id="cart-tax">₦0.00</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-item total">
+                                    <span>Total</span>
+                                    <span id="cart-total">₦0.00</span>
+                                </div>
+                                <div class="promo-code">
+                                    <h3>Promo Code</h3>
+                                    <form class="promo-form">
+                                        <input type="text" placeholder="Enter promo code">
+                                        <button type="submit" class="btn btn-secondary">Apply</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Shipping Information -->
+                    <div class="checkout-step" id="shipping-step">
+                        <div class="checkout-grid">
+                            <div class="shipping-form-container">
+                                <h2>Shipping Information</h2>
+                                <form class="shipping-form" id="shipping-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="first-name">First Name</label>
+                                            <input type="text" id="first-name" name="first-name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last-name">Last Name</label>
+                                            <input type="text" id="last-name" name="last-name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Street Address</label>
+                                        <input type="text" id="address" name="address" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <input type="text" id="city" name="city" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <input type="text" id="state" name="state" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postal-code">Postal Code</label>
+                                        <input type="text" id="postal-code" name="postal-code" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <select id="country" name="country" required>
+                                            <option value="">Select Country</option>
+                                            <option value="nigeria" selected>Nigeria</option>
+                                            <option value="ghana">Ghana</option>
+                                            <option value="kenya">Kenya</option>
+                                            <option value="south-africa">South Africa</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group shipping-options">
+                                        <label>Shipping Method</label>
+                                        <div class="radio-group">
+                                            <div class="radio-option">
+                                                <input type="radio" id="standard-shipping" name="shipping-method" value="standard" checked>
+                                                <label for="standard-shipping">
+                                                    <span class="radio-label">Standard Shipping (3-5 business days)</span>
+                                                    <span class="radio-price">₦2,000</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-option">
+                                                <input type="radio" id="express-shipping" name="shipping-method" value="express">
+                                                <label for="express-shipping">
+                                                    <span class="radio-label">Express Shipping (1-2 business days)</span>
+                                                    <span class="radio-price">₦5,000</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-option">
+                                                <input type="radio" id="same-day-shipping" name="shipping-method" value="same-day">
+                                                <label for="same-day-shipping">
+                                                    <span class="radio-label">Same Day Delivery (Lagos only)</span>
+                                                    <span class="radio-price">₦8,000</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary prev-step" data-prev="cart">Back to Cart</button>
+                                        <button type="submit" class="btn btn-primary next-step" data-next="payment">Continue to Payment</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="order-summary">
+                                <h2>Order Summary</h2>
+                                <div id="shipping-cart-items">
+                                    <!-- Cart item summary will be loaded dynamically -->
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-item">
+                                    <span>Subtotal</span>
+                                    <span id="shipping-subtotal">₦0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Shipping</span>
+                                    <span id="shipping-cost">₦2,000.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Tax</span>
+                                    <span id="shipping-tax">₦0.00</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-item total">
+                                    <span>Total</span>
+                                    <span id="shipping-total">₦0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment Information -->
+                    <div class="checkout-step" id="payment-step">
+                        <div class="checkout-grid">
+                            <div class="payment-form-container">
+                                <h2>Payment Information</h2>
+                                <form class="payment-form" id="payment-form">
+                                    <div class="form-group payment-options">
+                                        <label>Payment Method</label>
+                                        <div class="radio-group">
+                                            <div class="radio-option">
+                                                <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                                                <label for="credit-card">
+                                                    <span class="radio-label">Credit/Debit Card</span>
+                                                    <span class="payment-icons">
+                                                        <i class="fab fa-cc-visa"></i>
+                                                        <i class="fab fa-cc-mastercard"></i>
+                                                        <i class="fab fa-cc-amex"></i>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-option">
+                                                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+                                                <label for="bank-transfer">
+                                                    <span class="radio-label">Bank Transfer</span>
+                                                </label>
+                                            </div>
+                                            <div class="radio-option">
+                                                <input type="radio" id="pay-on-delivery" name="payment-method" value="pay-on-delivery">
+                                                <label for="pay-on-delivery">
+                                                    <span class="radio-label">Pay on Delivery</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="credit-card-form">
+                                        <div class="form-group">
+                                            <label for="card-name">Name on Card</label>
+                                            <input type="text" id="card-name" name="card-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-number">Card Number</label>
+                                            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="expiry-date">Expiry Date</label>
+                                                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cvv">CVV</label>
+                                                <input type="text" id="cvv" name="cvv" placeholder="123">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="bank-transfer-form" style="display: none;">
+                                        <div class="bank-details">
+                                            <h3>Bank Account Details</h3>
+                                            <p>Please transfer the total amount to the following account:</p>
+                                            <div class="bank-info">
+                                                <p><strong>Bank Name:</strong> First Bank of Nigeria</p>
+                                                <p><strong>Account Name:</strong> Kosenuel Electronics Ltd</p>
+                                                <p><strong>Account Number:</strong> 1234567890</p>
+                                                <p><strong>Reference:</strong> <span id="order-reference">KOS-12345</span></p>
+                                            </div>
+                                            <p class="note">Please use the reference number when making your transfer. Your order will be processed once payment is confirmed.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="pay-on-delivery-form" style="display: none;">
+                                        <div class="pod-details">
+                                            <h3>Pay on Delivery Information</h3>
+                                            <p>Please note the following for Pay on Delivery:</p>
+                                            <ul>
+                                                <li>Cash and card payments are accepted upon delivery</li>
+                                                <li>A valid ID will be required at the time of delivery</li>
+                                                <li>This option is only available for Lagos, Abuja, and Port Harcourt</li>
+                                                <li>A ₦1,000 handling fee will be added to your total</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="terms-agree" name="terms-agree" required>
+                                            <label for="terms-agree">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary prev-step" data-prev="shipping">Back to Shipping</button>
+                                        <button type="submit" class="btn btn-primary next-step" data-next="confirmation">Complete Order</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="order-summary">
+                                <h2>Order Summary</h2>
+                                <div id="payment-cart-items">
+                                    <!-- Cart item summary will be loaded dynamically -->
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-item">
+                                    <span>Subtotal</span>
+                                    <span id="payment-subtotal">₦0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Shipping</span>
+                                    <span id="payment-shipping">₦2,000.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Tax</span>
+                                    <span id="payment-tax">₦0.00</span>
+                                </div>
+                                <div class="summary-item pod-fee" style="display: none;">
+                                    <span>Pay on Delivery Fee</span>
+                                    <span>₦1,000.00</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-item total">
+                                    <span>Total</span>
+                                    <span id="payment-total">₦0.00</span>
+                                </div>
+                                <div class="secure-payment">
+                                    <i class="fas fa-lock"></i>
+                                    <p>Secure Payment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Order Confirmation -->
+                    <div class="checkout-step" id="confirmation-step">
+                        <div class="confirmation-container">
+                            <div class="confirmation-header">
+                                <div class="confirmation-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h2>Thank You for Your Order!</h2>
+                                <p>Your order has been placed successfully.</p>
+                            </div>
+                            <div class="order-details">
+                                <h3>Order Details</h3>
+                                <div class="order-info">
+                                    <div class="order-info-item">
+                                        <span>Order Number:</span>
+                                        <span id="confirmation-order-number">KOS-12345</span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span>Order Date:</span>
+                                        <span id="confirmation-order-date">April 5, 2025</span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span>Payment Method:</span>
+                                        <span id="confirmation-payment-method">Credit Card</span>
+                                    </div>
+                                    <div class="order-info-item">
+                                        <span>Shipping Method:</span>
+                                        <span id="confirmation-shipping-method">Standard Shipping</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="confirmation-summary">
+                                <h3>Order Summary</h3>
+                                <div id="confirmation-items">
+                                    <!-- Order items will be loaded dynamically -->
+                                </div>
+                                <div class="summary-totals">
+                                    <div class="summary-item">
+                                        <span>Subtotal</span>
+                                        <span id="confirmation-subtotal">₦0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Shipping</span>
+                                        <span id="confirmation-shipping">₦2,000.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span>Tax</span>
+                                        <span id="confirmation-tax">₦0.00</span>
+                                    </div>
+                                    <div class="summary-item pod-fee" style="display: none;">
+                                        <span>Pay on Delivery Fee</span>
+                                        <span>₦1,000.00</span>
+                                    </div>
+                                    <div class="summary-divider"></div>
+                                    <div class="summary-item total">
+                                        <span>Total</span>
+                                        <span id="confirmation-total">₦0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shipping-address">
+                                <h3>Shipping Address</h3>
+                                <p id="confirmation-address">
+                                    John Doe<br>
+                                    123 Main Street<br>
+                                    Lagos, Nigeria<br>
+                                    +234 123 456 7890
+                                </p>
+                            </div>
+                            <div class="confirmation-message">
+                                <p>A confirmation email has been sent to <span id="confirmation-email">john.doe@example.com</span>.</p>
+                                <p>You can track your order status in your account or using the order number above.</p>
+                            </div>
+                            <div class="confirmation-actions">
+                                <a href="../index.html" class="btn btn-secondary">Continue Shopping</a>
+                                <a href="#" class="btn btn-primary">Track Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/kosenuel_logo.png" alt="Kosenuel Logo">
+                    <p>Specializing in high-quality electronics that enhance your lifestyle.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li><a href="products.html?category=smartphones">Smartphones</a></li>
+                            <li><a href="products.html?category=laptops">Laptops</a></li>
+                            <li><a href="products.html?category=audio">Audio</a></li>
+                            <li><a href="products.html?category=wearables">Wearables</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Warranty</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kosenuel. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

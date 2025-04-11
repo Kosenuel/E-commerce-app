@@ -1,0 +1,100 @@
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('responsive.css');
+
+/* Main Styles File - Combines all CSS modules */
+
+/* Custom styles for specific pages or overrides can be added here */
+
+/* Home Page Specific Styles */
+.featured-products, .categories, .why-choose-us {
+    padding: var(--spacing-xl) 0;
+}
+
+.categories {
+    background-color: var(--color-silver);
+}
+
+/* Product Page Specific Styles */
+.products-section {
+    padding-bottom: var(--spacing-xl);
+}
+
+/* About Page Specific Styles */
+.our-story, .our-mission, .our-team, .milestones, .testimonials, .partners {
+    padding: var(--spacing-xl) 0;
+}
+
+.our-mission {
+    background-color: var(--color-silver);
+}
+
+/* Additional Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+/* Print Styles */
+@media print {
+    header, footer, .newsletter, .cta-section, .filter-section, .product-actions, .cart-actions {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .product-detail-wrapper, .checkout-grid {
+        display: block;
+    }
+    
+    .product-gallery, .product-info-detail, .cart-items, .order-summary {
+        width: 100%;
+        margin-bottom: 20pt;
+    }
+    
+    .confirmation-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
